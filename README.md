@@ -4,11 +4,45 @@ This project demonstrates a chatbot powered by Langchain's integration with Chat
 
 ---
 
+## What is Streamlit?
+Streamlit is an open-source app framework used to build interactive web applications with Python. It's particularly useful for creating data applications and machine learning demos, allowing developers to quickly prototype and deploy apps.
+
+For more details, visit [Streamlit's website](https://streamlit.io/) _(opens in a new tab)_.
+
+---
+
 ## What is Langchain?
 Langchain is a framework for developing applications powered by large language models (LLMs). It simplifies interactions with LLMs by providing tools to manage prompts, memory, and workflows. For more details, visit [Langchain's website](https://www.langchain.com).
 
-## What is ChatGroq?
-ChatGroq provides a high-performance language model designed for fast and accurate question answering. It offers powerful APIs that integrate seamlessly with Langchain for robust chatbot functionality. For more details, visit [Groq's website](https://www.groq.com).
+---
+
+## What is Groq?
+Groq represents a paradigm shift in AI inference, enabling instant intelligence for developers and enterprises. Its highlights include:
+
+- **The Groq Language Processing Unit (LPU)**: A hardware solution designed specifically for AI inference and language tasks, offering unparalleled speed, affordability, and scalability.
+- **Cloud and on-premises availability**: Users can access Groq’s capabilities via GroqCloud™ or deploy LPUs in on-premise AI compute centers.
+- **Energy efficiency**: Groq’s design focuses on delivering maximum performance while minimizing energy consumption.
+
+Groq is committed to democratizing AI by making its technology accessible to everyone.
+
+For more details, visit [Groq's website](https://groq.com/) _(opens in a new tab)_.
+
+
+
+## Usage of Groq in This Project
+In this project, Groq’s **LPU** is leveraged to power the inference engine for the ChatGroq API. This ensures:
+
+1. **Fast AI inference**: Rapid and responsive user interactions.
+2. **Scalability**: Support for complex and high-volume queries.
+3. **Energy efficiency**: Reduced resource consumption compared to traditional inference methods.
+
+
+---
+
+## What is FastAPI?
+FastAPI is a modern, fast, and high-performance web framework for building APIs with Python. It is designed for ease of use, developer productivity, and fast execution, making it a great choice for creating robust RESTful APIs. Built on standard Python type hints, FastAPI provides automatic data validation, interactive API documentation (via Swagger and ReDoc), and asynchronous capabilities powered by ASGI.
+
+For more details, visit [FastAPI's official documentation](https://fastapi.tiangolo.com/#installation)
 
 ---
 
@@ -23,13 +57,13 @@ ChatGroq provides a high-performance language model designed for fast and accura
 
 ## Project Structure
 ```
-langchain-chatgroq/
+End-To-End-QA-Chatbot/
 |
-├── api/
+├── groq/
 │   ├── app.py                # FastAPI app with ChatGroq
 │   └── client.py             # Streamlit client for user interaction
-├── data/
-│   └── us_census/            # Directory containing PDF documents for embeddings
+│   └── us_census             # Directory containing PDF documents for embeddings
+│   
 ├── requirements.txt          # List of dependencies
 ├── .env                      # Environment variables for API keys
 └── README.md                 # Project documentation
@@ -51,9 +85,10 @@ Before starting, ensure the following are installed:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/Sithum-Bimsara/Langchain-ChatGroq.git
-cd Langchain-ChatGroq
+git clone https://github.com/Sithum-Bimsara/End-To-End-QA-Chatbot.git
+cd End-To-End-QA-Chatbot.git
 ```
+
 
 ### 2. Create a Virtual Environment
 - On Windows:
@@ -91,12 +126,14 @@ Replace the placeholders with your actual API keys.
 ### 6. Run the Backend
 To start the FastAPI backend:
 ```bash
+cd groq
 uvicorn api.app:app --reload --host localhost --port 8000
 ```
 
 ### 7. Run the Frontend
 In another terminal, start the Streamlit frontend:
 ```bash
+cd groq
 streamlit run api/client.py
 ```
 The app will be accessible in your browser at [http://localhost:8501](http://localhost:8501).
@@ -116,13 +153,13 @@ The app will be accessible in your browser at [http://localhost:8501](http://loc
 ## Requirements
 The dependencies for this project are listed in `requirements.txt`. Some key packages include:
 
-- `fastapi>=0.100.0`
-- `streamlit>=1.24.0`
-- `langchain-core>=0.0.1`
-- `langchain-groq>=0.0.1`
-- `langchain-community>=0.0.1`
-- `faiss-cpu>=1.7.4`
-- `python-dotenv>=1.0.0`
+- `fastapi`
+- `streamlit`
+- `langchain-core`
+- `langchain-groq`
+- `langchain-community`
+- `faiss-cpu`
+- `python-dotenv0`
 
 Install them using:
 ```bash
